@@ -1,0 +1,38 @@
+{
+  "name": "swatcat",
+  "version": "1.0.0",
+  "type": "module",
+  "main": "dist/app.js",
+  "scripts": {
+    "build": "tsc",
+    "start:ds:binance": "npx tsx src/data-streams/binance/orders.ts",
+    "start:ai:ta": "npx tsx src/ai-agents/ta.ts",
+    "start": "node dist/index.js",
+    "test": "npx tsx src/tests/index.ts",
+    "clean": "rm -rf dist"
+  },
+  "keywords": [],
+  "author": "https://x.com/digbenjamins",
+  "license": "ISC",
+  "description": "",
+  "devDependencies": {
+    "@types/luxon": "^3.4.2",
+    "@types/node": "^22.10.1",
+    "@types/ws": "^8.5.13",
+    "eslint": "^9.15.0",
+    "globals": "^15.12.0",
+    "tsx": "^4.19.2",
+    "typescript": "^5.7.2",
+    "typescript-eslint": "^8.16.0"
+  },
+  "dependencies": {
+    "axios": "^1.7.9",
+    "bs58": "^6.0.0",
+    "chalk": "^5.3.0",
+    "dotenv": "^16.4.5",
+    "luxon": "^3.5.0",
+    "openai": "^4.76.2",
+    "puppeteer": "^23.10.4",
+    "ws": "^8.18.0"
+  }
+}
