@@ -6,7 +6,7 @@ The SwatCat Algo Trader Toolkit is a comprehensive Node.js project developed usi
 
 ## Last Video
 
-[![Binance Spot Orders Bot | SwatCat Series Part 1 (2025)](https://img.youtube.com/vi/SbIbBoaE7ss/0.jpg)](https://www.youtube.com/watch?v=SbIbBoaE7ss)
+[![Grok X AI Bot to Read Crypto Charts using TypeScript | SwatCat Series Part 1 (2025)](https://img.youtube.com/vi/nZBqQ6smtL8/0.jpg)](https://www.youtube.com/watch?v=nZBqQ6smtL8)
 
 You can find the YouTube series here: [SwatCat Series: Algo Trader Toolkit](https://www.youtube.com/watch?v=SbIbBoaE7ss&list=PL4AZZBlG1dWGp2lo0K-7V2fg1U73z6DcB)
 
@@ -18,7 +18,12 @@ The project includes the following tools, with additional tools to be introduced
 
 - Binance Spot Purchase Data Stream | [Video Tutorial](https://www.youtube.com/watch?v=SbIbBoaE7ss)
 
+### AI Agents
+
+- AI chart analyzer for Tradingview | [Video Tutorial](https://www.youtube.com/watch?v=nZBqQ6smtL8)
+
 ## Project logs
 
+- 2024-12-14: Added second tool: AI chart analyzer for Tradingview
 - 2024-12-11: Added first tool: Binance Spot Purchase Data Stream
 - 2024-12-11: Initialized the project
