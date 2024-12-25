@@ -10,8 +10,11 @@ import fs from "fs"; // Interact with filesystem
 dotenv.config();
 
 // Check if the CSV file exists
-if (!fs.existsSync(config.data_streams.dump_file_name)) {
-  fs.writeFileSync(config.data_streams.dump_file_name, "Event Time, Symbol, Aggregate Trade ID, Price, Quantity, First Trade ID, Trade Time, Is Buyer Maker\n");
+if (!fs.existsSync(config.data_streams.orders.dump_file_name)) {
+  fs.writeFileSync(
+    config.data_streams.orders.dump_file_name,
+    "Event Time, Symbol, Aggregate Trade ID, Price, Quantity, First Trade ID, Trade Time, Is Buyer Maker\n"
+  );
 }
 
 async function binanceTradeStream(): Promise<void> {
@@ -20,7 +23,7 @@ async function binanceTradeStream(): Promise<void> {
   // Object used to subscribe to the streams
   const subscriptionMessage = {
     method: "SUBSCRIBE",
-    params: config.data_streams.pairs || "btcusdt@trade",
+    params: config.data_streams.orders.pairs || "btcusdt@trade",
     id: 1,
   };
 
@@ -57,7 +60,7 @@ async function binanceTradeStream(): Promise<void> {
       const hrTradeTime = centralEuropenTime.toFormat("HH:mm:ss");
 
       // Filer out small orders
-      if (orderUsdAmount > config.data_streams.min_price) {
+      if (orderUsdAmount > config.data_streams.orders.min_price) {
         // Check if this is a sell or buy order
         const tradeType = tradeMaker ? "SELL" : "BUY";
 
@@ -66,7 +69,7 @@ async function binanceTradeStream(): Promise<void> {
         let emoji = tradeType === "BUY" ? "🤑" : "😡";
 
         // Filter Whale orders
-        if (orderUsdAmount >= config.data_streams.min_price_whale) {
+        if (orderUsdAmount >= config.data_streams.orders.min_price_whale) {
           // Set the color and emoji for whale sell and buy orders
           emoji = tradeType === "BUY" ? "🚀" : "🐻";
           color = tradeType === "SELL" ? chalk.bgRedBright : chalk.bgGreenBright;
@@ -78,7 +81,7 @@ async function binanceTradeStream(): Promise<void> {
 
         // Log the order in the CSV file
         fs.appendFileSync(
-          config.data_streams.dump_file_name,
+          config.data_streams.orders.dump_file_name,
           `${orderTime},${displaySymbol.toUpperCase()},${tradeId},${orderPrice},${orderQty},${tradeTime},${tradeMaker}\n`
         );
       }

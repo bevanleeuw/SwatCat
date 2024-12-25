@@ -15,6 +15,34 @@ interface binanceStreamDataWithConfirmation extends binanceStreamData {
 }
 export type BinanceStreamMessage = binanceStreamData | binanceStreamDataWithConfirmation;
 
+// Binance Mark Price Data Stream
+export interface dbFundingRateRecord {
+  id?: number; // Optional because it's added by the database
+  time: number;
+  symbol: string;
+  fundingRate: number;
+  fundingRatePerc: number;
+  indexPrice: number;
+  markPrice: number;
+  estimatedPrice: number;
+  payer: string;
+}
+interface binanceMarkPriceData {
+  e: string; // Event type
+  E: number; // Event time
+  s: string; // Symbol
+  p: string; // Mark price
+  i: string; // Index price
+  P: string; // Estimated Settle Price, only useful in the last hour before the settlement starts
+  r: string; // Funding rate
+  T: number; // Next funding time
+}
+interface binanceMarkPriceDataWithConfirmation extends binanceMarkPriceData {
+  id?: number; // Confirmation ID
+  result?: null; // Confirmation result
+}
+export type BinanceMarkPriceMessage = binanceMarkPriceData | binanceMarkPriceDataWithConfirmation;
+
 // ai agents
 // Vision
 export interface VisionModelResponse {

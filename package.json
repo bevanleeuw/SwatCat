@@ -5,7 +5,8 @@
   "main": "dist/app.js",
   "scripts": {
     "build": "tsc",
-    "start:ds:binance": "npx tsx src/data-streams/binance/orders.ts",
+    "start:ds:binance:orders": "npx tsx src/data-streams/binance/orders.ts",
+    "start:ds:binance:funding": "npx tsx src/data-streams/binance/funding.ts",
     "start:ai:ta": "npx tsx src/ai-agents/ta.ts",
     "start": "node dist/index.js",
     "test": "npx tsx src/tests/index.ts",
@@ -33,6 +34,8 @@
     "luxon": "^3.5.0",
     "openai": "^4.76.2",
     "puppeteer": "^23.10.4",
+    "sqlite": "^5.1.1",
+    "sqlite3": "^5.1.7",
     "ws": "^8.18.0"
   }
 }

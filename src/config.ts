@@ -1,9 +1,26 @@
 export const config = {
+  settings: {
+    db_name_tracker: "src/dumps/main.db", // Sqlite Database location
+  },
   data_streams: {
-    pairs: ["xrpusdt@trade", "btcusdt@trade"],
-    min_price: 25000,
-    min_price_whale: 50000,
-    dump_file_name: "src/dumps/binance_trades.csv",
+    orders: {
+      pairs: ["xrpusdt@trade", "btcusdt@trade"],
+      min_price: 25000,
+      min_price_whale: 50000,
+      dump_file_name: "src/dumps/binance_trades.csv",
+    },
+    funding: {
+      position_value: 25000,
+      pairs: [
+        "xrpusdt@markPrice",
+        "btcusdt@markPrice",
+        "atomusdt@markPrice",
+        "adausdt@markPrice",
+        "dogeusdt@markPrice",
+        "neousdt@markPrice",
+        "dotusdt@markPrice",
+      ],
+    },
   },
   data_scrape: {
     run_headless: false,
